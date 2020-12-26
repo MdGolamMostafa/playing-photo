@@ -7,7 +7,7 @@ import './HomePage.css'
 
 const HomePage = () => {
     return (
-        <div className="container">
+        <div className="container wrapper">
         <Header/>
                 <h1>HomePage</h1>
                     <button>

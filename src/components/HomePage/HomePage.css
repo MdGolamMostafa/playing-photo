@@ -1,4 +1,13 @@
+*{
+    margin : 0;
+    padding: 0;
+}
 .container{
     height: 100%;
     background-image: url(./nasa-bg.jpg);
+    
+}
+.wrapper{
+    width: 1170px;
+    margin:auto;
 }
