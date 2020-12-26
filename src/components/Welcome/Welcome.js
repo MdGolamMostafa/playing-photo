@@ -8,7 +8,7 @@ const Wellcome = () => {
             <Header></Header>
             <h1>Bismillah Welcome Page</h1>
             <button>
-                <Link as={Link} className="px-4" to="/home">News</Link>
+                <Link as={Link} className="px-4" to="/home">Go to Home Page</Link>
             </button>
 
         </div>
