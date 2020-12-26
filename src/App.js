@@ -5,50 +5,36 @@ import Welcome from "./components/Welcome/Welcome";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import HomePage from "./components/HomePage/HomePage";
 import ImagesPage from "./components/ImagesPage/ImagesPage";
-// import PostsPage from "./components/PostsPage/PostsPage";
-// import PostDetail from "./components/PostsPage/PostDetail";
+
 import NoMatch from "./components/NoMatch/NoMatch";
 import PostsPage from "./components/PostsPage/PostsPage";
 import PostDetail from "./components/PostsPage/PostDetail";
 import AlbumsPage from "./components/AlbumsPage/AlbumsPage";
 import AllAlbumPictures from "./components/AlbumsPage/AllAlbumPictures";
+import Login from "./components/Login/Login";
 
 export const UserContext = createContext();
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState({});  
   return (
-    <UserContext.Provider value={{ user, setUser}}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <div className="text-center">
         <Router>
           <Switch>
+          
               <Route exact path="/" component={Welcome}></Route>
-              <Route  path="/home" component={HomePage}></Route>
-              <Route  path="/image" >
-                <ImagesPage></ImagesPage>
-              </Route>
-              <Route path="/postPage">
-                <PostsPage/>
-              </Route>
-
-              <Route  path="/post/:postId">
-                <PostDetail/>
-              </Route>
-              <Route path="/albumPage">
-                <AlbumsPage/>
-              </Route>
-
-              <Route  path="/album/userId/:albumId">
-                <AllAlbumPictures/>
-              </Route>
-
-
-
-
-            <Route path="*">
-              <NoMatch/>
-            </Route>
-              
+              <PrivateRoute path="/home" >
+                <HomePage></HomePage>
+              </PrivateRoute>
+              <Route  path="/login" component={Login}></Route>
+              <Route  path="/image" component={ImagesPage}></Route>
+              <Route  path="/postPage" component={PostsPage}></Route>
+              <Route  path="/post/:postId" component={PostDetail}></Route>
+              <Route  path="/albumPage" component={AlbumsPage}></Route>
+              <Route  path="/album/userId/:albumId" component={AllAlbumPictures}></Route>
+              <Route  path="*" component={NoMatch}></Route>
+                            
           </Switch>
         </Router>
         </div>
