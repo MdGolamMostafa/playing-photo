@@ -5,12 +5,12 @@ const Comment = (props) => {
     const {comments} = props;
     console.log(comments);
     return (
-    
-            <div>
+            <div className = 'text-left'>
                 
                 {   
                     comments.map((commentsDetails) =>
-                                    (<CommentsDetails  commentsDetails={commentsDetails} >
+                                    (<CommentsDetails  
+                                    commentsDetails={commentsDetails} >
                                     </CommentsDetails>)            
                                 )
                 }

@@ -6,18 +6,18 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 const StyledBadge = withStyles((theme) => ({
   badge: {
     backgroundColor: '#44b700',
-    color: '#44b700',
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-    '&::after': {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      animation: '$ripple 1.2s infinite ease-in-out',
-      border: '1px solid currentColor',
-      content: '""',
+      color: '#44b700',
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      '&::after': {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            borderRadius: '50%',
+            animation: '$ripple 1.2s infinite ease-in-out',
+            border: '1px solid currentColor',
+            content: '""',
     },
   },
   '@keyframes ripple': {
@@ -34,20 +34,20 @@ const StyledBadge = withStyles((theme) => ({
 
 const SmallAvatar = withStyles((theme) => ({
   root: {
-      width: 22,
-      height: 22,
-      border: `2px solid ${theme.palette.background.paper}`,
+          width: 22,
+          height: 22,
+          border: `2px solid ${theme.palette.background.paper}`,
     },
   }))(Avatar);
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'left',
-    marginLeft:'11%',
-    marginRight:'7%',
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+          display: 'left',
+          marginLeft:'11%',
+          marginRight:'7%',
+          '& > *': {
+            margin: theme.spacing(1),
+          },
   },
 }));
 
@@ -61,34 +61,33 @@ const CommentsDetails = (props) => {
 
         <div className={classes.root}>
           <StyledBadge
-            overlap="circle"
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            variant="dot"
-          >
+                overlap="circle"
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                variant="dot"
+              >
           </StyledBadge>
           <Badge
-            overlap="circle"
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-            badgeContent={<SmallAvatar alt="Remy Sharp" 
-            
-            // src={`https://loremflickr.com/600/400?random=${id}`} 
-            src={`https://randomuser.me/api/portraits/thumb/men/${id}.jpg`} 
-            
-            />}
-          >
+                overlap="circle"
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                badgeContent={<SmallAvatar alt="Remy Sharp" 
+                
+                // src={`https://loremflickr.com/600/400?random=${id}`} 
+                src={`https://randomuser.me/api/portraits/thumb/men/${id}.jpg`} 
+                
+                />}
+              >
           </Badge>
-          
-              <h3>{name}</h3>
-              <h4>{email}</h4>
-              <h6>{body}</h6>
-              <hr/>
-              <br/>
+              <h3>Name:   {name}</h3>
+                <h4>Email:  {email}</h4>
+                  <h6> {body}</h6>
+                  <hr/>
+                  <br/>
     </div>
     );
 };

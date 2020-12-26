@@ -24,15 +24,12 @@ const ImagesPage = () => {
     return (
         <div>
             <h1>Bismillah ImagesPage </h1>
-            <h1>Unsplash Photo Search Here </h1>
-            <input onChange={handleChange} type="text" name="photo" placeholder="Search for photos"/>
-            <button onClick={handleSubmit} type="submit" >Search</button>
-
-            {
-                result.map((photo) => (
-                    <img src={photo.urls.small}/>
-                ))
-            }
+                <h1>Unsplash Photo Search Here </h1>
+                    <input onChange={handleChange} type="text" name="photo" placeholder="Search for photos"/>
+                        <button onClick={handleSubmit} type="submit" >Search</button>
+                            {
+                                result.map((photo) => (<img src={photo.urls.small}/>))
+                            }
         </div>
     );
 };

@@ -10,6 +10,8 @@ import ImagesPage from "./components/ImagesPage/ImagesPage";
 import NoMatch from "./components/NoMatch/NoMatch";
 import PostsPage from "./components/PostsPage/PostsPage";
 import PostDetail from "./components/PostsPage/PostDetail";
+import AlbumsPage from "./components/AlbumsPage/AlbumsPage";
+import AllAlbumPictures from "./components/AlbumsPage/AllAlbumPictures";
 
 export const UserContext = createContext();
 
@@ -31,7 +33,14 @@ function App() {
 
               <Route  path="/post/:postId">
                 <PostDetail/>
-            </Route>
+              </Route>
+              <Route path="/albumPage">
+                <AlbumsPage/>
+              </Route>
+
+              <Route  path="/album/userId/:albumId">
+                <AllAlbumPictures/>
+              </Route>
 
 
 

@@ -32,6 +32,7 @@ const PostDetail = () => {
         .then(data=> setPostId(data))
     },[])
 
+
   const [comments,setComments] = useState([]);
     useEffect(() =>{
         const url = `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
@@ -39,6 +40,8 @@ const PostDetail = () => {
         .then(res =>res.json())
         .then(data => setComments(data));
       },[])
+
+      
       const styleComment = {
           textAlign : 'center'
       }
@@ -47,31 +50,29 @@ const PostDetail = () => {
         <div>
         <Card className={classes.root}>
             <CardActionArea>
-            <CardMedia
-                component="img"
-                height = '333'
-                image={`https://loremflickr.com/600/400?random=${postId}`}
-                title={pId.title}
-                />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                {pId.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                {pId.body}
-                </Typography>
-            </CardContent>
+                <CardMedia
+                    component="img"
+                    height = '333'
+                    image={`https://loremflickr.com/600/400?random=${postId}`}
+                    title={pId.title}
+                    />
+
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                    {pId.title}
+                    </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {pId.body}
+                        </Typography>
+                </CardContent>
             </CardActionArea>
-        
         </Card>
             <div style={styleComment}>
                 <br/>
                 <h2>{comments.length} comments </h2>
             </div>
-            
             <hr/>
                 <Comment comments={comments}></Comment>
-                
         </div>
     );
 };
