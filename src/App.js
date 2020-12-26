@@ -22,7 +22,6 @@ function App() {
         <div className="text-center">
         <Router>
           <Switch>
-          
               <Route exact path="/" component={Welcome}></Route>
               <PrivateRoute path="/home" >
                 <HomePage></HomePage>

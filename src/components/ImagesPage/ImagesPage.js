@@ -12,11 +12,11 @@ const ImagesPage = () => {
     }
 
     function handleSubmit(event) {
-        console.log(photo);
+        
         const url = "https://api.unsplash.com/search/photos?page=1&query="+photo+"&client_id="+ clientId;
         axios.get(url)
         .then((response) =>{
-            console.log(response);
+            
             setResult(response.data.results);
 
         })

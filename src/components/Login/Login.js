@@ -7,6 +7,8 @@ import InputItem from './InputItem';
 import { createUserWithEmailAndPassword, handleFacebookSignIn, handleGoogleSignIn, initializeFirebase, signInWithEmailAndPassword } from './HandleLogin';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
+import { useDispatch } from 'react-redux';
+import {storeUserData} from '../../redux/actions/userAction';
 initializeFirebase()
 const initUser = {
     firstName: '',
@@ -23,7 +25,9 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
+    
+    const  dispatch = useDispatch();
+    
     let { from } = location.state || { from: { pathname: "/" } };
     const [loading, setLoading] = useState(false)
     const [newUser, setNewUser] = useState(true)
@@ -41,6 +45,10 @@ const Login = () => {
         setLoading(true)
         createUserWithEmailAndPassword({ firstName, lastName, email, password })
             .then(res => {
+              const user = { 
+                email: email
+              }
+              dispatch(storeUserData(user));
             setLoading(false)
             if (res.error) {
                 setUserInfo({ ...userInfo, errors: res })
@@ -55,6 +63,11 @@ const Login = () => {
             setLoading(true)
             signInWithEmailAndPassword({ email, password })
             .then(res => {
+              const user = { 
+                email: email
+              }
+              dispatch(storeUserData(user));
+
                 setLoading(false)
                 if (res.error) {
                 setUserInfo({ ...userInfo, errors: res })
@@ -68,10 +81,14 @@ const Login = () => {
         e.preventDefault();
     }
 
-    
     const googleSignIn = () => {
         handleGoogleSignIn()
         .then(res => {
+          const user = { 
+                email: email
+              }
+              dispatch(storeUserData(user));
+
             if (res.error) {
             setUserInfo({ ...userInfo, errors: res })
             } else {
@@ -84,6 +101,10 @@ const Login = () => {
     const facebookSignIn = () => {
         handleFacebookSignIn()
         .then(res => {
+              const user = { 
+                email: email
+              }
+              dispatch(storeUserData(user));
             if (res.error) {
             setUserInfo({ ...userInfo, errors: res })
 
