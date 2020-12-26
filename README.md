@@ -4,5 +4,5 @@
 
 ## Descriptions:
 
-###Used redux and react.
+###Used redux and react. 
 ###Image search 
